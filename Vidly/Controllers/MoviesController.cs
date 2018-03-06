@@ -13,7 +13,7 @@ namespace Vidly.Controllers
         public ActionResult Index()
         {
             var movies = new Movie() { Name ="Lotr"};
-            return View();
+            return View(movies);
         }
     }
 }
