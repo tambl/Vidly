@@ -12,8 +12,14 @@ namespace Vidly.Controllers
         // GET: Movies
         public ActionResult Index()
         {
-            var movies = new Movie() { Name ="Lotr"};
+            var movies = new Movie() { Name = "Lotr" };
             return View(movies);
+
+        }
+        [Route("movies/released/{year}/{month:regex(\\d{4})}")]
+        public ActionResult MoviesByReleaseDate(int year, int month)
+        {
+            return Content(year + " " + month);
         }
     }
 }
