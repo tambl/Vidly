@@ -196,6 +196,7 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\CustomerController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\MoviesController.cs" />
@@ -213,6 +214,10 @@
     <Compile Include="Migrations\201803261453318_MembershipType.cs" />
     <Compile Include="Migrations\201803261453318_MembershipType.Designer.cs">
       <DependentUpon>201803261453318_MembershipType.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201803291409131_PopulateMembershipTypes.cs" />
+    <Compile Include="Migrations\201803291409131_PopulateMembershipTypes.Designer.cs">
+      <DependentUpon>201803291409131_PopulateMembershipTypes.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
@@ -287,6 +292,8 @@
     <Content Include="Views\Shared\Lockout.cshtml" />
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
     <Content Include="Views\Movies\Index.cshtml" />
+    <Content Include="Views\Customer\Index.cshtml" />
+    <Content Include="Views\Customer\New.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -308,6 +315,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201803261453318_MembershipType.resx">
       <DependentUpon>201803261453318_MembershipType.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201803291409131_PopulateMembershipTypes.resx">
+      <DependentUpon>201803291409131_PopulateMembershipTypes.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
