@@ -46,24 +46,32 @@
                 columns: [{
                     data: "name",
                     render: function (data, type, customer) {
-                        return "<a href='/Customers/Edit/" + customer.id + "'/>" + data.name + "</a>"
+                        return "<a href='/Customers/Edit/" + customer.id + "'>" + customer.name + "</a>"
                     }
                 },
                     { data: "name" },
                     {
-                         data: "id",
+                        data: "id",
 
-                         render: function (data) {
-                             return "<button class='btn btn-link js-delete' data-customer-id=" + data.id + ">Delete</button>"
-                         }
-                     }
+                        render: function (data) {
+                            return "<button class='btn btn-link js-delete' data-customer-id=" + data + ">Delete</button>"
+                        }
+                    }
                 ]
 
             });
 
 
             $("#customers").on("click", "js-delete", function () {
+                var button = $(this);
 
+                $.ajax({
+                    url: "/api/customers/" + button.attr("data-customer-id"),
+                    method: "DELETE",
+                    success: function () {
+                        button.parents("tr"), remove();
+                    }
+                });
 
             });
 
