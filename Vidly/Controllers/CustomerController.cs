@@ -34,7 +34,21 @@ namespace Vidly.Controllers
             };
             return View(customer);
         }
+        [HttpPost]
+        public ActionResult Create(CustomerViewModel model)
+        {
+            var cutomer = new Customer()
+            {
+                Name = model.Name,
+                MembershipTypeId = model.MembershipTypeId,
+                IsSubscribedToCustomer = model.IsSubscribedToCustomer,
+                BirthDate = DateTime.Now
+            };
+            _context.Customers.Add(cutomer);
+            _context.SaveChanges();
 
+            return Redirect("Index");
+        }
         public ActionResult Edit()
         {
             return View();

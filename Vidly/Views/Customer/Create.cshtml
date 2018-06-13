@@ -14,13 +14,24 @@
     </div>
 
     <div class="checkbox">
-        <input type="checkbox" checked=@Html.CheckBoxFor(c => c.IsSubscribedToCustomer) />
+        <label> @Html.CheckBoxFor(c => c.IsSubscribedToCustomer) Subscribed To Customer </label>
     </div>
 
     <div class="form-group">
         @Html.LabelFor(t => t.MembershipTypeId)
         @Html.DropDownListFor(f => f.MembershipTypeId, new SelectList(Model.MembershipTypes, "Id", "DurationInMonth"), "Select ...", new { @class = "form-control" })
     </div>
+
+    <div class="form-group">
+        @Html.LabelFor(t => t.BirthDate)
+        @Html.TextBoxFor(f => f.BirthDate, "{0:d MM yyyy}", new { @class = "form-control" })
+    </div>
+
+    <div>
+        @Html.HiddenFor(h => h.Id)
+        @Html.AntiForgeryToken()
+    </div>
+
 
     <div class="form-group">
         <button class="btn btn-primary" type="submit">Create</button>

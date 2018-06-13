@@ -46,7 +46,7 @@
                 columns: [{
                     data: "name",
                     render: function (data, type, customer) {
-                        return "<a href='/Customers/Edit/" + customer.id + "'>" + customer.name + "</a>"
+                        return "<a href='/Customers/Create/" + customer.id + "'>" + customer.name + "</a>"
                     }
                 },
                     { data: "name" },
@@ -62,17 +62,18 @@
             });
 
 
-            $("#customers").on("click", "js-delete", function () {
+            $("#customers").on("click", ".js-delete", function () {
                 var button = $(this);
 
-                $.ajax({
-                    url: "/api/customers/" + button.attr("data-customer-id"),
-                    method: "DELETE",
-                    success: function () {
-                        button.parents("tr"), remove();
-                    }
+                bootbox.confirm("Do you want to delete", function () {
+                    $.ajax({
+                        url: "/api/customers/" + button.attr("data-customer-id"),
+                        method: "DELETE",
+                        success: function () {
+                            button.parents("tr").remove();
+                        }
+                    });
                 });
-
             });
 
         });
