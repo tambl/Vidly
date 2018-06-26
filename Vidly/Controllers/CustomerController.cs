@@ -49,7 +49,7 @@ namespace Vidly.Controllers
 
             return Redirect("Index");
         }
-        public ActionResult Edit()
+        public ActionResult Edit(int id)
         {
             return View();
         }
