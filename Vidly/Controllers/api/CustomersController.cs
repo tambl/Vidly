@@ -20,9 +20,14 @@ namespace Vidly.Controllers.api
             _context = new ApplicationDbContext();
         }
         //GET/api/customers
+        [Authorize(Roles = "CanManageMovies")]
         public IEnumerable<CustomerDto> GetCustomers()
-        {           
-            return _context.Customers.Include(i => i.MembershipType).ToList().Select(Mapper.Map<Customer, CustomerDto>);
+        {
+            if (User.IsInRole("CanManageMovies"))
+            {
+                return _context.Customers.Include(i => i.MembershipType).ToList().Select(Mapper.Map<Customer, CustomerDto>);
+            }
+            else return null;
         }
         //GET/api/customers/1
         public IHttpActionResult GetCustomer(int id)

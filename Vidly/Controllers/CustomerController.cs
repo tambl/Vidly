@@ -18,13 +18,14 @@ namespace Vidly.Controllers
             _context = new ApplicationDbContext();
         }
         // GET: Customer
+
         public ActionResult Index()
         {
             // var customers = _context.Customers.Include(c => c.MembershipType).ToList();
 
             return View();
         }
-
+        [Authorize(Roles = UserRolesName.CanManageMovies)]
         public ActionResult Create()
         {
             var membershipTypes = _context.MembershipTypes.ToList();
