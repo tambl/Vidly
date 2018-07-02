@@ -8,6 +8,8 @@ namespace Vidly.Controllers
 {
     public class HomeController : Controller
     {
+        //კლიენტზე html ქეშირება, მაგრამ ცვლადი მონაცემბისთვის სახიფათოა
+        // [OutputCache(Duration =0,VaryByParam ="*", NoStore =true)]
         public ActionResult Index()
         {
             return View();
